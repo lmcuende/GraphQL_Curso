@@ -19,10 +19,11 @@ async function init() {
 
     // Inicializamos el servidor de Apollo
     const server = new ApolloServer({
-        schema,
+        schema: schema,
         introspection: true, // Necesario
         dataSources: () => ({
-            seasons: new dataSources.SeasonsData()
+            seasons: new dataSources.SeasonsData(),
+            races: new dataSources.RacesData()
         })
     });
 
