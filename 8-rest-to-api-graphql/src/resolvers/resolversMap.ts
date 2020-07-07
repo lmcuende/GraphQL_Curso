@@ -2,9 +2,9 @@ import { IResolvers } from 'graphql-tools';
 import query from './query';
 import type from './type';
 
-const resolvers : IResolvers = {
+const resolversMap : IResolvers = {
     ...query,
     ...type
 };
 
-export default resolvers;
+export default resolversMap;

@@ -4,5 +4,4 @@ import { RacesData } from './data-races';
 export const dataSources = {
     SeasonsData,
     RacesData
-
 }
