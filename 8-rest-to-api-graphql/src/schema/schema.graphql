@@ -25,6 +25,10 @@ type Query {
   driverSelect(id: String!): Driver
   "Clasificación final de los pilotos de una temporada"
   seasonsPilotsRanking(year: String!): [DriverStanding!]!
+  "Circuitos históricos"
+  historyCircuits(pageElements: Int, page: Int): [Circuit!]!
+  "Circuito seleccionado"
+  circuitSelect(id: String!): Circuit
 }
 "Información de la temporada"
 type Season {
