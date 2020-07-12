@@ -1,15 +1,40 @@
 type Query {
     "Academy Students List"
-    estudiantes: String
+    estudiantes: [Estudiante!]!
+    "Information Academy Student"
+    estudiante(id: ID!): Estudiante!
+    "Academy Courses List"
+    cursos: [Curso!]!
+     "Information Academy Course"
+    curso(curso: ID!): Curso!
 }
+
+type Mutation {
+    cursoNuevo(curso: CursoInput!): Curso!
+    modificarCurso(curso: CursoInput!): Curso!
+    eliminarCurso(id: ID!): Curso!
+}
+
+input CursoInput {
+    id: ID
+    title: String!
+    description: String!
+    clases: Int!
+    time: Float!
+    logo: String!
+    level: Nivel= TODOS
+    path: String!
+    teacher: String!
+}
+
 "Students information"
 type Estudiante {
     "Student identification"
     id: ID!
     name: String!
-    email: String
+    email: String!
     website: String
-    courses: [Course!]!
+    courses: [Curso!]!
 }
 
 type Curso {
@@ -21,9 +46,9 @@ type Curso {
     logo: String!
     level: Nivel!
     path: String!
-    teacher. String!
+    teacher: String!
     students: [Estudiante]
-    reviews: [Valoracion!]
+    reviews: [Valoracion!]!
 }
 
 enum Nivel {
@@ -37,5 +62,5 @@ type Valoracion {
     id: ID!
     name: String!
     points: Float!
-    comments: String
+    comment: String
 }

@@ -8,13 +8,13 @@ const express_1 = __importDefault(require("express"));
 const compression_1 = __importDefault(require("compression"));
 const cors_1 = __importDefault(require("cors"));
 const http_1 = require("http");
-const index_1 = __importDefault(require("./schema/index"));
+const schema_1 = __importDefault(require("./schema"));
 const graphql_playground_middleware_express_1 = __importDefault(require("graphql-playground-middleware-express"));
 const app = express_1.default();
-app.use('*', cors_1.default);
-app.use(compression_1.default);
+app.use('*', cors_1.default());
+app.use(compression_1.default());
 const servidor = new apollo_server_express_1.ApolloServer({
-    schema: index_1.default,
+    schema: schema_1.default,
     introspection: true
 });
 servidor.applyMiddleware({ app });
